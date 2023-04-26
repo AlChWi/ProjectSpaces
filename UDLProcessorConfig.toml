@@ -1,0 +1,5 @@
+[udl]
+path = "../../spaces_lib/src/spaces.udl"
+
+[uniffi]
+path = "../uniffi-bindgen"

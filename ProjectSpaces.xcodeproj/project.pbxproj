@@ -14,7 +14,26 @@
 		9BC0C7A029F870EC0063E5DB /* ProjectSpacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C79F29F870EC0063E5DB /* ProjectSpacesTests.swift */; };
 		9BC0C7AA29F870EC0063E5DB /* ProjectSpacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C7A929F870EC0063E5DB /* ProjectSpacesUITests.swift */; };
 		9BC0C7AC29F870EC0063E5DB /* ProjectSpacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C7AB29F870EC0063E5DB /* ProjectSpacesUITestsLaunchTests.swift */; };
+		9BC0C7C129F872180063E5DB /* Spaces.udl in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0C7C029F872180063E5DB /* Spaces.udl */; };
+		9BC0C7C529F874150063E5DB /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC0C7C429F874150063E5DB /* Core */; };
+		9BC0C7CA29F874AF0063E5DB /* RustWrappers in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC0C7C929F874AF0063E5DB /* RustWrappers */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		9BC0C7C229F8723F0063E5DB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.udl";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(PROJECT_DIR)/Modules/RustWrappers/$(INPUT_FILE_BASE)_udl.lock",
+			);
+			script = "# reset path to disable xcode's modifications\nPATH=\"$(bash -l -c 'echo $PATH')\"\n# run script\npython3 Scripts/process_udl_sources.py \"$INPUT_FILE_PATH\" \"$PROJECT_DIR/Modules/RustWrappers/\" \"SpacesFFI\" \"SwiftyRustWrapper\"\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		9BC0C79C29F870EC0063E5DB /* PBXContainerItemProxy */ = {
@@ -45,6 +64,9 @@
 		9BC0C7A529F870EC0063E5DB /* ProjectSpacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectSpacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC0C7A929F870EC0063E5DB /* ProjectSpacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSpacesUITests.swift; sourceTree = "<group>"; };
 		9BC0C7AB29F870EC0063E5DB /* ProjectSpacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSpacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BC0C7C029F872180063E5DB /* Spaces.udl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spaces.udl; path = ../../spaces_lib/src/Spaces.udl; sourceTree = "<group>"; };
+		9BE8F56329F9C31100DF9519 /* RustWrappers */ = {isa = PBXFileReference; lastKnownFileType = text; name = RustWrappers; path = Modules/RustWrappers; sourceTree = SOURCE_ROOT; };
+		9BE8F56429F9C31400DF9519 /* Core */ = {isa = PBXFileReference; lastKnownFileType = text; name = Core; path = Modules/Core; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC0C7CA29F874AF0063E5DB /* RustWrappers in Frameworks */,
+				9BC0C7C529F874150063E5DB /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +103,7 @@
 				9BC0C79E29F870EC0063E5DB /* ProjectSpacesTests */,
 				9BC0C7A829F870EC0063E5DB /* ProjectSpacesUITests */,
 				9BC0C78B29F870EC0063E5DB /* Products */,
+				9BC0C7C329F874150063E5DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +120,8 @@
 		9BC0C78C29F870EC0063E5DB /* ProjectSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				9BE8F56229F9C2F000DF9519 /* Modules */,
+				9BC0C7BF29F872070063E5DB /* UDL */,
 				9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */,
 				9BC0C78F29F870EC0063E5DB /* ContentView.swift */,
 				9BC0C79129F870EC0063E5DB /* Assets.xcassets */,
@@ -129,6 +156,30 @@
 			path = ProjectSpacesUITests;
 			sourceTree = "<group>";
 		};
+		9BC0C7BF29F872070063E5DB /* UDL */ = {
+			isa = PBXGroup;
+			children = (
+				9BC0C7C029F872180063E5DB /* Spaces.udl */,
+			);
+			name = UDL;
+			sourceTree = "<group>";
+		};
+		9BC0C7C329F874150063E5DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BE8F56229F9C2F000DF9519 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9BE8F56429F9C31400DF9519 /* Core */,
+				9BE8F56329F9C31100DF9519 /* RustWrappers */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,15 +187,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BC0C7AF29F870EC0063E5DB /* Build configuration list for PBXNativeTarget "ProjectSpaces" */;
 			buildPhases = (
+				9BC0C7CD29F8786D0063E5DB /* Compile Rust Library */,
 				9BC0C78629F870EC0063E5DB /* Sources */,
 				9BC0C78729F870EC0063E5DB /* Frameworks */,
 				9BC0C78829F870EC0063E5DB /* Resources */,
 			);
 			buildRules = (
+				9BC0C7C229F8723F0063E5DB /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
 			name = ProjectSpaces;
+			packageProductDependencies = (
+				9BC0C7C429F874150063E5DB /* Core */,
+				9BC0C7C929F874AF0063E5DB /* RustWrappers */,
+			);
 			productName = ProjectSpaces;
 			productReference = 9BC0C78A29F870EC0063E5DB /* ProjectSpaces.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +292,7 @@
 			files = (
 				9BC0C79629F870EC0063E5DB /* Preview Assets.xcassets in Resources */,
 				9BC0C79229F870EC0063E5DB /* Assets.xcassets in Resources */,
+				9BC0C7C129F872180063E5DB /* Spaces.udl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +311,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BC0C7CD29F8786D0063E5DB /* Compile Rust Library */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Rust Library";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# reset path to disable xcode's modifications\nPATH=\"$(bash -l -c 'echo $PATH')\"\n# Compile\npython3 Scripts/xc-universal-binary.py libspaces_lib.a spaces_lib $SRCROOT/../spaces_lib $CONFIGURATION\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BC0C78629F870EC0063E5DB /* Sources */ = {
@@ -612,6 +691,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9BC0C7C429F874150063E5DB /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		9BC0C7C929F874AF0063E5DB /* RustWrappers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RustWrappers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BC0C78229F870EC0063E5DB /* Project object */;
 }
