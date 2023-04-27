@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
+import Core
 
 @main
 struct ProjectSpacesApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+        SPCoreScene()
     }
 }

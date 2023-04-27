@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9BC0C78E29F870EC0063E5DB /* ProjectSpacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */; };
-		9BC0C79029F870EC0063E5DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C78F29F870EC0063E5DB /* ContentView.swift */; };
 		9BC0C79229F870EC0063E5DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0C79129F870EC0063E5DB /* Assets.xcassets */; };
 		9BC0C79629F870EC0063E5DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0C79529F870EC0063E5DB /* Preview Assets.xcassets */; };
 		9BC0C7A029F870EC0063E5DB /* ProjectSpacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C79F29F870EC0063E5DB /* ProjectSpacesTests.swift */; };
@@ -55,7 +54,6 @@
 /* Begin PBXFileReference section */
 		9BC0C78A29F870EC0063E5DB /* ProjectSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSpacesApp.swift; sourceTree = "<group>"; };
-		9BC0C78F29F870EC0063E5DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9BC0C79129F870EC0063E5DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BC0C79329F870EC0063E5DB /* ProjectSpaces.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectSpaces.entitlements; sourceTree = "<group>"; };
 		9BC0C79529F870EC0063E5DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				9BE8F56229F9C2F000DF9519 /* Modules */,
 				9BC0C7BF29F872070063E5DB /* UDL */,
 				9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */,
-				9BC0C78F29F870EC0063E5DB /* ContentView.swift */,
 				9BC0C79129F870EC0063E5DB /* Assets.xcassets */,
 				9BC0C79329F870EC0063E5DB /* ProjectSpaces.entitlements */,
 				9BC0C79429F870EC0063E5DB /* Preview Content */,
@@ -174,10 +171,18 @@
 		9BE8F56229F9C2F000DF9519 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9BE8F56529FA8D1A00DF9519 /* UI */,
 				9BE8F56429F9C31400DF9519 /* Core */,
 				9BE8F56329F9C31100DF9519 /* RustWrappers */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		9BE8F56529FA8D1A00DF9519 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,7 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC0C79029F870EC0063E5DB /* ContentView.swift in Sources */,
 				9BC0C78E29F870EC0063E5DB /* ProjectSpacesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
