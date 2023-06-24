@@ -46,23 +46,47 @@ typedef struct RustCallStatus {
 // ⚠️ increment the version suffix in all instances of UNIFFI_SHARED_HEADER_V4 in this file.           ⚠️
 #endif // def UNIFFI_SHARED_H
 
-RustBuffer Spaces_fa77_hello_from_rust(
+void ffi_Spaces_e763_Rectangle_object_free(
+      void*_Nonnull ptr,
+    RustCallStatus *_Nonnull out_status
+    );
+void*_Nonnull Spaces_e763_Rectangle_new(
+      uint32_t width,uint32_t height,
+    RustCallStatus *_Nonnull out_status
+    );
+uint32_t Spaces_e763_Rectangle_get_height(
+      void*_Nonnull ptr,
+    RustCallStatus *_Nonnull out_status
+    );
+uint32_t Spaces_e763_Rectangle_get_width(
+      void*_Nonnull ptr,
+    RustCallStatus *_Nonnull out_status
+    );
+RustBuffer Spaces_e763_Rectangle_as_string(
+      void*_Nonnull ptr,
+    RustCallStatus *_Nonnull out_status
+    );
+int8_t Spaces_e763_Rectangle_can_hold(
+      void*_Nonnull ptr,void*_Nonnull other,
+    RustCallStatus *_Nonnull out_status
+    );
+RustBuffer Spaces_e763_hello_from_rust(
       
     RustCallStatus *_Nonnull out_status
     );
-RustBuffer ffi_Spaces_fa77_rustbuffer_alloc(
+RustBuffer ffi_Spaces_e763_rustbuffer_alloc(
       int32_t size,
     RustCallStatus *_Nonnull out_status
     );
-RustBuffer ffi_Spaces_fa77_rustbuffer_from_bytes(
+RustBuffer ffi_Spaces_e763_rustbuffer_from_bytes(
       ForeignBytes bytes,
     RustCallStatus *_Nonnull out_status
     );
-void ffi_Spaces_fa77_rustbuffer_free(
+void ffi_Spaces_e763_rustbuffer_free(
       RustBuffer buf,
     RustCallStatus *_Nonnull out_status
     );
-RustBuffer ffi_Spaces_fa77_rustbuffer_reserve(
+RustBuffer ffi_Spaces_e763_rustbuffer_reserve(
       RustBuffer buf,int32_t additional,
     RustCallStatus *_Nonnull out_status
     );

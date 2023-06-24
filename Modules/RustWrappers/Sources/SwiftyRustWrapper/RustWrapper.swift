@@ -3,6 +3,5 @@
 
 struct SomeStruct {
     func someFunc() {
-        
     }
 }

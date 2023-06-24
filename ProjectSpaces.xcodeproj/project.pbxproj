@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3023CD2A067EE600C31498 /* process_udl_sources.py in Resources */ = {isa = PBXBuildFile; fileRef = 9B3023CB2A067EE600C31498 /* process_udl_sources.py */; };
+		9B3023CE2A067EE600C31498 /* xc-universal-binary.py in Resources */ = {isa = PBXBuildFile; fileRef = 9B3023CC2A067EE600C31498 /* xc-universal-binary.py */; };
+		9B79145E2A30A8C500879538 /* CPPTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B79145C2A30A8C500879538 /* CPPTest.cpp */; };
 		9BC0C78E29F870EC0063E5DB /* ProjectSpacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */; };
 		9BC0C79229F870EC0063E5DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0C79129F870EC0063E5DB /* Assets.xcassets */; };
 		9BC0C79629F870EC0063E5DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0C79529F870EC0063E5DB /* Preview Assets.xcassets */; };
@@ -17,22 +20,6 @@
 		9BC0C7C529F874150063E5DB /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC0C7C429F874150063E5DB /* Core */; };
 		9BC0C7CA29F874AF0063E5DB /* RustWrappers in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC0C7C929F874AF0063E5DB /* RustWrappers */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildRule section */
-		9BC0C7C229F8723F0063E5DB /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.udl";
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 1;
-			outputFiles = (
-				"$(PROJECT_DIR)/Modules/RustWrappers/$(INPUT_FILE_BASE)_udl.lock",
-			);
-			script = "# reset path to disable xcode's modifications\nPATH=\"$(bash -l -c 'echo $PATH')\"\n# run script\npython3 Scripts/process_udl_sources.py \"$INPUT_FILE_PATH\" \"$PROJECT_DIR/Modules/RustWrappers/\" \"SpacesFFI\" \"SwiftyRustWrapper\"\n";
-		};
-/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		9BC0C79C29F870EC0063E5DB /* PBXContainerItemProxy */ = {
@@ -52,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B3023CB2A067EE600C31498 /* process_udl_sources.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = process_udl_sources.py; sourceTree = "<group>"; };
+		9B3023CC2A067EE600C31498 /* xc-universal-binary.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "xc-universal-binary.py"; sourceTree = "<group>"; };
+		9B79145B2A30A8C500879538 /* ProjectSpaces-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectSpaces-Bridging-Header.h"; sourceTree = "<group>"; };
+		9B79145C2A30A8C500879538 /* CPPTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPPTest.cpp; sourceTree = "<group>"; };
+		9B79145D2A30A8C500879538 /* CPPTest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CPPTest.hpp; sourceTree = "<group>"; };
 		9BC0C78A29F870EC0063E5DB /* ProjectSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSpacesApp.swift; sourceTree = "<group>"; };
 		9BC0C79129F870EC0063E5DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B3023CA2A067EE600C31498 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				9B3023CB2A067EE600C31498 /* process_udl_sources.py */,
+				9B3023CC2A067EE600C31498 /* xc-universal-binary.py */,
+			);
+			name = Scripts;
+			path = ../../Spaces/Scripts;
+			sourceTree = "<group>";
+		};
 		9BC0C78129F870EC0063E5DB = {
 			isa = PBXGroup;
 			children = (
@@ -118,12 +120,16 @@
 		9BC0C78C29F870EC0063E5DB /* ProjectSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				9B3023CA2A067EE600C31498 /* Scripts */,
 				9BE8F56229F9C2F000DF9519 /* Modules */,
 				9BC0C7BF29F872070063E5DB /* UDL */,
 				9BC0C78D29F870EC0063E5DB /* ProjectSpacesApp.swift */,
+				9B79145C2A30A8C500879538 /* CPPTest.cpp */,
+				9B79145D2A30A8C500879538 /* CPPTest.hpp */,
 				9BC0C79129F870EC0063E5DB /* Assets.xcassets */,
 				9BC0C79329F870EC0063E5DB /* ProjectSpaces.entitlements */,
 				9BC0C79429F870EC0063E5DB /* Preview Content */,
+				9B79145B2A30A8C500879538 /* ProjectSpaces-Bridging-Header.h */,
 			);
 			path = ProjectSpaces;
 			sourceTree = "<group>";
@@ -192,13 +198,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BC0C7AF29F870EC0063E5DB /* Build configuration list for PBXNativeTarget "ProjectSpaces" */;
 			buildPhases = (
+				9BA337D32A46F9DB00348D24 /* Process UDLs */,
 				9BC0C7CD29F8786D0063E5DB /* Compile Rust Library */,
 				9BC0C78629F870EC0063E5DB /* Sources */,
 				9BC0C78729F870EC0063E5DB /* Frameworks */,
 				9BC0C78829F870EC0063E5DB /* Resources */,
 			);
 			buildRules = (
-				9BC0C7C229F8723F0063E5DB /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -259,6 +265,7 @@
 				TargetAttributes = {
 					9BC0C78929F870EC0063E5DB = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1500;
 					};
 					9BC0C79A29F870EC0063E5DB = {
 						CreatedOnToolsVersion = 14.3;
@@ -298,6 +305,8 @@
 				9BC0C79629F870EC0063E5DB /* Preview Assets.xcassets in Resources */,
 				9BC0C79229F870EC0063E5DB /* Assets.xcassets in Resources */,
 				9BC0C7C129F872180063E5DB /* Spaces.udl in Resources */,
+				9B3023CE2A067EE600C31498 /* xc-universal-binary.py in Resources */,
+				9B3023CD2A067EE600C31498 /* process_udl_sources.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,8 +327,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9BA337D32A46F9DB00348D24 /* Process UDLs */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/udl_locations.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Process UDLs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(PROJECT_DIR)/Modules/RustWrappers/$(INPUT_FILE_BASE)_udl.lock",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# reset path to disable xcode's modifications\nPATH=\"$(bash -l -c 'echo $PATH')\"\n\n# run script\nfor index in $(seq $SCRIPT_INPUT_FILE_LIST_COUNT); do\n    # 1 => `SCRIPT_INPUT_FILE_LIST_0`\n    filelist=SCRIPT_INPUT_FILE_LIST_$((index-1))\n    # `SCRIPT_INPUT_FILE_LIST_0` => value in $SCRIPT_INPUT_FILE_LIST_0\n    filelist_path=${!filelist}\n\n    while read -r file_path; do\n        python3 Scripts/process_udl_sources.py \"${file_path}\" \"$PROJECT_DIR/Modules/RustWrappers/\" \"SpacesFFI\" \"SwiftyRustWrapper\"\n    done <$filelist_path\ndone\n\n\n";
+		};
 		9BC0C7CD29F8786D0063E5DB /* Compile Rust Library */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -344,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC0C78E29F870EC0063E5DB /* ProjectSpacesApp.swift in Sources */,
+				9B79145E2A30A8C500879538 /* CPPTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +526,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ProjectSpaces/ProjectSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -512,16 +549,20 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alchwi.projspaces.ProjectSpaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = "debug-only";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProjectSpaces/ProjectSpaces-Bridging-Header.h";
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -532,6 +573,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ProjectSpaces/ProjectSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -550,16 +596,19 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alchwi.projspaces.ProjectSpaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = "debug-only";
+				SWIFT_OBJC_BRIDGING_HEADER = "ProjectSpaces/ProjectSpaces-Bridging-Header.h";
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
